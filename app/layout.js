@@ -21,9 +21,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "LuxeFashion | Premium Fashion & Modern Style",
+  title: "Graphl | Premium Fashion & Modern Style",
   description:
-    "LuxeFashion is a premium fashion destination offering modern, elegant, and trend-driven clothing designed for everyday luxury and timeless style.",
+    "Graphl is a premium fashion destination offering modern, elegant, and trend-driven clothing designed for everyday luxury and timeless style.",
 };
 
 export default function RootLayout({ children }) {
