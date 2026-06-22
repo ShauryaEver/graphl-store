@@ -73,13 +73,13 @@ const TrendingProducts = [
   },
   {
     id: 4,
-    title: "Premium Sunglasses",
-    image: "/glasses-trending.jpg",
+    title: "Premium Streetwear",
+    image: "/D1.jpg",
     price: "1599",
-    rating: "4.4",
+    rating: "4.5",
     sizes: ["S", "M", "L", "XL"],
 
-    disc: "UV-protected premium sunglasses with modern design.",
+    disc: "Modern streetwear hoodie with soft fleece interior for comfort.",
   },
   {
     id: 5,
