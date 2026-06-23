@@ -12,15 +12,16 @@ const Navbar = () => {
   const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
 
   return (
-    <nav className="sticky top-0 z-50 bg-white text-black shadow-md">
+    <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-md text-black shadow-sm border-b border-black/5">
       <div className="flex items-center justify-between px-6 py-2">
         <div className="flex items-center gap-3">
   <Image
-    src="/LOGO 4.png"
-    alt="Graphl"
-    width={40}
-    height={40}
-  />
+  src="/LOGO 4.png"
+  alt="Graphl"
+  width={40}
+  height={40}
+  className="transition-transform duration-300 hover:scale-110"
+/>
   <span className="text-2xl font-semibold tracking-wider">
     GRAPHL
   </span>
@@ -46,10 +47,7 @@ const Navbar = () => {
             <span>Home</span>
           </Link>
 
-          <Link
-            href="/shop"
-            className="flex items-center gap-2 hover:text-[#b8962e]"
-          >
+          <Link href="/" className="nav-link flex items-center gap-2 hover:text-[#b8962e]">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"

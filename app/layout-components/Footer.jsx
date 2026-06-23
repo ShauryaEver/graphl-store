@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image";
 import {
   Share2,
   Camera,
@@ -12,31 +12,40 @@ import {
 
 export default function Footer() {
   return (
-    <footer
-     className="bg-linear-to-b from-[#1a1a1a] to-[#0f0f0f] text-gray-300 pt-20">
+    <footer className="bg-gradient-to-b from-[#171717] via-[#111111] to-[#080808] text-gray-300 pt-20">
       <div className="max-w-7xl mx-auto px-6">
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-14">
 
           <div className="space-y-6 lg:col-span-1">
             <div className="flex items-center gap-3">
-              <span className="w-4 h-4 border-2 border-yellow-400" />
+              
+              <Image
+               src="/LOGO 4.png"
+               alt="Graphl"
+               width={22}
+              height={22}
+              />
               <h2 className="text-white text-xl font-semibold tracking-wide">
                 Graphl
               </h2>
             </div>
 
             <p className="text-sm leading-relaxed text-gray-400">
-              Discover timeless elegance and contemporary style with our curated
-              collection of premium fashion pieces.
+              Graphl is more than clothing — it's a statement of ambition, 
+              confidence, and individuality. Designed for those who create their own path.
             </p>
 
             <div className="flex items-center gap-5 text-gray-400">
-              <Share2 size={18} />
-              <Camera size={18} />
-              <MessageCircle size={18} />
-              <ImageIcon size={18} />
-            </div>
+  {[Share2, Camera, MessageCircle, ImageIcon].map((Icon, i) => (
+    <Icon
+      key={i}
+      size={18}
+      className="cursor-pointer transition-all duration-300 hover:text-yellow-400 hover:-translate-y-1"
+    />
+  ))}
+</div>
+              
           </div>
 
           <FooterColumn
@@ -51,7 +60,7 @@ export default function Footer() {
 
           <FooterColumn
             title="COMPANY"
-            links={["About Us", "Careers", "Sustainability", "Press"]}
+            links={["About Graphl", "Our Story", "Contact", "FAQ"]}
           />
 
           <FooterColumn
@@ -94,7 +103,9 @@ const FooterColumn = ({ title, links }) => {
       </h3>
       <ul className="space-y-3 text-sm">
         {links.map((link, i) => (
-          <li key={i} className="hover:text-white transition cursor-pointer">
+          <li
+  key={i}
+  className="hover:text-white hover:translate-x-1 transition-all duration-300 cursor-pointer">
             {link}
           </li>
         ))}

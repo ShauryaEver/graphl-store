@@ -258,17 +258,18 @@ export default function Home() {
 
   <div className="absolute inset-0 -z-10 bg-linear-to-b from-black/40 via-black/20 to-black/60" />
 
-  <div
-    className="
-      flex flex-col justify-center h-full
-      max-w-5xl
-      mx-5 sm:mx-10
-      gap-4
-      text-[#4A3728] font-semibold
-    "
-  >
+ <div
+  className="
+    flex flex-col justify-center h-full
+    max-w-5xl
+    mx-5 sm:mx-10
+    gap-4
+    text-[#4A3728] font-semibold
+    hero-content
+  "
+>
     <p className="inline-flex w-fit items-center rounded-full border border-white/20 bg-white/10 px-3 py-2 text-xs tracking-wide backdrop-blur-md">
-      GRAPHL DROP 01
+      GRAPHL // Premium Fashion & Modern Style
     </p>
 
     <h1
@@ -284,7 +285,7 @@ export default function Home() {
       <LayoutTextFlip />
     </h1>
 
-    <p className="text-sm sm:text-lg lg:text-xl max-w-xl">
+    <p className="max-w-xl ">
       More than clothing — it’s a statement of confidence, culture, and
       individuality.
     </p>
