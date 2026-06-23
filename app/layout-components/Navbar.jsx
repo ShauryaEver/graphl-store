@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { useCart } from "../cart/cartContext";
@@ -12,29 +13,18 @@ const Navbar = () => {
 
   return (
     <nav className="sticky top-0 z-50 bg-white text-black shadow-md">
-      <div className="flex items-center justify-between p-4">
-        <div className="flex items-center gap-2">
-          <svg
-            width="140"
-            height="32"
-            viewBox="0 0 140 32"
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-8 w-auto"
-          >
-            <rect x="8" y="4" width="16" height="20" className="fill-[#d4af37]" />
-            <rect x="12" y="8" width="8" height="12" className="fill-black" />
-            <text
-              x="32"
-              y="20"
-              fontFamily="Playfair Display"
-              fontSize="18"
-              fontWeight="600"
-              className="fill-gray-800"
-            >
-              Graphl
-            </text>
-          </svg>
-        </div>
+      <div className="flex items-center justify-between px-6 py-2">
+        <div className="flex items-center gap-3">
+  <Image
+    src="/LOGO 4.png"
+    alt="Graphl"
+    width={40}
+    height={40}
+  />
+  <span className="text-2xl font-semibold tracking-wider">
+    GRAPHL
+  </span>
+</div>
 
         <div className="hidden md:flex gap-6">
           <Link href="/" className="flex items-center gap-2 hover:text-[#b8962e]">

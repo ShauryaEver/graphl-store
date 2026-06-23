@@ -106,7 +106,7 @@ const TrendingProducts = [
 const ReviewData = [
   {
     profilePic: "https://images.unsplash.com/photo-1517841905240-472988babdf9",
-    name: "Arjun Patel",
+    name: "Amitabh Bachchan",
     occupation: "Regular Customer",
     rating: 4.5,
     comment:
@@ -114,7 +114,7 @@ const ReviewData = [
   },
   {
     profilePic: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde",
-    name: "Neha Sharma",
+    name: "Radhika Merchant",
     occupation: "First-time Buyer",
     rating: 4.0,
     comment:
@@ -122,14 +122,14 @@ const ReviewData = [
   },
   {
     profilePic: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
-    name: "Rohit Kumar",
+    name: "Rohit Sharma",
     occupation: "Frequent Shopper",
     rating: 3.8,
     comment: "Overall good, but the size runs slightly small. Go one size up.",
   },
   {
     profilePic: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1",
-    name: "Pooja Verma",
+    name: "Kiara Advani",
     occupation: "Fashion Enthusiast",
     rating: 4.7,
     comment: "Loved the design and comfort. Totally worth the money!",
