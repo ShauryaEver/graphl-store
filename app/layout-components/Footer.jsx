@@ -22,7 +22,7 @@ export default function Footer() {
             <div className="flex items-center gap-3">
               <span className="w-4 h-4 border-2 border-yellow-400" />
               <h2 className="text-white text-xl font-semibold tracking-wide">
-                LuxeFashion
+                Graphl
               </h2>
             </div>
 
