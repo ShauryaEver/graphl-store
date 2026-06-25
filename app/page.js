@@ -256,28 +256,62 @@ export default function Home() {
       will-change-transform transform-gpu"
   />
 
-  <div className="absolute inset-0 -z-10 bg-linear-to-b from-black/40 via-black/20 to-black/60" />
+  <div className="absolute inset-0 -z-10 bg-black/45" />
 
  <div
   className="
-    flex flex-col justify-center h-full
-    max-w-5xl
-    mx-5 sm:mx-10
-    gap-4
-    text-[#4A3728] font-semibold
-    hero-content
+flex
+flex-col
+justify-center
+items-start
+h-full
+max-w-3xl
+ml-8
+lg:ml-24
+px-6
+gap-4
+text-white
+hero-content
+-translate-y-4
+"
+>
+    <p
+  className="
+    inline-flex
+    mt-8
+    items-center
+    rounded-full
+    border
+    border-white/20
+    bg-white/10
+    backdrop-blur-xl
+    px-5
+    py-2
+    text-xs
+    uppercase
+    tracking-[0.3em]
+    text-white/90
+    transition-all
+    duration-300
   "
 >
-    <p className="inline-flex w-fit items-center rounded-full border border-white/20 bg-white/10 px-3 py-2 text-xs tracking-wide backdrop-blur-md">
-      GRAPHL // Premium Fashion & Modern Style
-    </p>
+  EST. 2026 • PREMIUM STREETWEAR
+</p>
 
-    <h1
-      className="
-        flex flex-wrap items-center gap-2
-        tracking-tight leading-tight
-      "
-    >
+    <h1 className="leading-[0.9]">
+
+  <span className="block text-5xl md:text-7xl font-black tracking-tight">
+    GRAPHL®
+  </span>
+
+  <span className="block mt-4 text-3xl md:text-6xl font-light uppercase tracking-[0.2em]">
+    BUILT FOR
+  </span>
+
+  <span className="block text-3xl md:text-6xl font-light uppercase tracking-[0.2em]">
+    THE BOLD
+  </span>
+
       <span className="font-bold text-2xl sm:text-4xl lg:text-7xl">
         GRAPHL
       </span>
@@ -286,14 +320,42 @@ export default function Home() {
     </h1>
 
     <p className="max-w-xl ">
-      More than clothing — it’s a statement of confidence, culture, and
-      individuality.
+      Designed for creators.
+      Built for everyday wear.
     </p>
 
     <Link href="/shop">
-      <button className="group relative overflow-hidden rounded-xl bg-[#d4af37] px-6 py-3 sm:px-7 sm:py-4 mt-4 text-black font-semibold shadow-lg w-fit">
+      <button
+        className="
+          group
+          relative
+          rounded-full
+          bg-white
+          text-black
+          px-8
+          py-4
+          font-semibold
+          transition-all
+          duration-500
+          hover:bg-black
+          hover:text-white
+          hover:border
+          hover:border-white
+        "
+      >
+
+
+        <div className="flex flex-wrap gap-6 mt-6 text-sm text-white/70">
+
+  <span>✓ Premium Cotton</span>
+
+  <span>✓ Free Shipping</span>
+
+  <span>✓ Easy Returns</span>
+
+</div>
         <span className="relative z-10 flex items-center gap-3">
-          Shop Now
+          SHOP COLLECTION →
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -315,15 +377,15 @@ export default function Home() {
       </button>
     </Link>
 
-    <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white hidden sm:block">
+    <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 text-white hidden sm:block">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
         strokeWidth={1.5}
-        width={32}
-        height={32}
+        width={26}
+        height={26}
         className="animate-bounce"
       >
         <path

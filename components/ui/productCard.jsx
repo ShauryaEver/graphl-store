@@ -1,21 +1,17 @@
 "use client";
+
 import Image from "next/image";
 
 function ProductCard({ product, onClick }) {
-
-  const image = product?.thumbnail ?? product?.image ?? "/placeholder.jpg";
+  const image =
+    product?.thumbnail ??
+    product?.image ??
+    "/placeholder.jpg";
 
   const title =
-    typeof product?.title === "string" ? product.title : "Untitled Product";
-
-  const description =
-    typeof product?.disc === "string" && product.disc.trim().length > 0
-      ? product.disc
-      : "Premium quality product";
-
-  const rating = Number.isFinite(Number(product?.rating))
-    ? Number(product.rating)
-    : "4.0";
+    typeof product?.title === "string"
+      ? product.title
+      : "GRAPHL PRODUCT";
 
   const price = Number.isFinite(Number(product?.price))
     ? Math.floor(Number(product.price))
@@ -24,44 +20,57 @@ function ProductCard({ product, onClick }) {
   return (
     <div
       onClick={() => onClick(product)}
-      className="w-72 rounded-2xl bg-slate-50 overflow-hidden
-      shadow-[0_10px_30px_rgba(0,0,0,0.14)]
-      hover:shadow-[0_18px_50px_rgba(0,0,0,0.22)]
-      transition-shadow duration-300"
+      className="
+        group
+        cursor-pointer
+      "
     >
-      <div className="relative w-full h-[240px]">
+      <div
+        className="
+          overflow-hidden
+          rounded-3xl
+          bg-gray-100
+        "
+      >
         <Image
           src={image}
           alt={title}
-          fill
-          className="object-cover"
-          sizes="288px"
+          width={600}
+          height={700}
+          className="
+            w-full
+            h-[420px]
+            object-cover
+            transition-transform
+            duration-700
+            group-hover:scale-105
+          "
         />
       </div>
 
-      <div className="p-3 space-y-1">
-        <h3 className="text-lg font-semibold text-gray-900 line-clamp-1">
+      <div className="pt-4">
+        <h3
+          className="
+            text-lg
+            font-semibold
+            text-black
+            tracking-tight
+            line-clamp-1
+          "
+        >
           {title}
         </h3>
 
-        <p className="text-sm text-gray-600 line-clamp-2">{description}</p>
-
-        <div className="flex items-center gap-1 text-yellow-500 text-sm">
-          ★★★★☆
-          <span className="ml-2 text-gray-500">{rating}</span>
-        </div>
-
-        <div className="flex items-center justify-between pt-2">
-          <span className="text-xl font-bold text-gray-900">₹{price}</span>
-
-          <button
-            type="button"
-            className="rounded-lg bg-black px-3 py-1.5
-            text-sm text-white hover:bg-gray-800 transition"
-          >
-            Add to cart
-          </button>
-        </div>
+        <p
+          className="
+            mt-1
+            text-xl
+            font-bold
+            text-black
+          "
+        >
+          ₹{price}
+        </p>
       </div>
     </div>
   );

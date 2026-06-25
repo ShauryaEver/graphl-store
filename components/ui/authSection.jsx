@@ -25,18 +25,9 @@ export default function AuthSection() {
   return (
     <div className="relative">
       <button
-  onClick={() => setOpen(!open)}
-  className="
-    flex items-center gap-2
-    rounded-full
-    p-1
-    transition-all duration-300
-    hover:bg-white/20
-    hover:backdrop-blur-md
-    hover:shadow-lg
-    hover:scale-105
-  "
->
+        onClick={() => setOpen(!open)}
+        className="flex items-center gap-2 rounded-full p-1 transition-all duration-300 hover:bg-white/20 hover:backdrop-blur-md hover:shadow-lg hover:scale-105"
+      >
         <Image
   src={session.user.image}
   alt="Avatar"
@@ -44,53 +35,40 @@ export default function AuthSection() {
   height={36}
   className="
     rounded-full
-    border border-white/30
-    shadow-md
+    object-cover
+    ring-2 ring-white/20
+    hover:ring-[#C6A74A]
     transition-all duration-300
   "
 />
-
       </button>
 
       {open && (
-  <div
-  className="
-    absolute right-0 mt-3 w-64
-    rounded-2xl
-    border border-white/20
-    bg-white/10
-    backdrop-blur-xl
-    shadow-2xl
-    overflow-hidden
-  "
->
+        <div className="absolute right-0 mt-3 w-64 rounded-2xl border border-white/20 bg-white/10 backdrop-blur-xl shadow-2xl overflow-hidden">
+          <div className="px-6 py-5 bg-black/10">
+            <h3 className="text-white font-semibold text-xl">
+              {session.user.name}
+            </h3>
+            <p className="text-white/70 text-sm mt-1">
+              {session.user.email}
+            </p>
+          </div>
 
-    <div className="px-4 py-3 border-b">
-      <p className="font-semibold text-black">
-        {session.user.name}
-      </p>
-      <p className="text-xs text-gray-500 truncate">
-        {session.user.email}
-      </p>
-    </div>
+          <Link
+            href="/profile"
+            className="flex items-center gap-3 px-6 py-4 text-white hover:bg-white/10 transition-all duration-300"
+          >
+            Profile
+          </Link>
 
-    <Link
-      href="/profile"
-      className="block px-4 py-3 text-sm hover:bg-gray-100"
-      onClick={() => setOpen(false)}
-    >
-      👤 Profile
-    </Link>
-
-    <button
-      onClick={() => signOut({ callbackUrl: "/" })}
-      className="w-full text-left px-4 py-3 text-sm text-red-600 hover:bg-gray-100"
-    >
-      🚪 Logout
-    </button>
-
-  </div>
-)}
+          <button
+            onClick={() => signOut({ callbackUrl: "/" })}
+            className="w-full text-left px-6 py-4 text-red-300 hover:bg-red-500/10 transition-all duration-300"
+          >
+            Logout
+          </button>
+        </div>
+      )}
     </div>
   );
 }

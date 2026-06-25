@@ -55,6 +55,7 @@ export default function PreviewCard({ product, onClose }) {
   return (
     <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center">
       <div className="bg-white w-[90%] max-w-4xl rounded-2xl p-6 relative">
+        Shaurya
         <button
           onClick={onClose}
           className="absolute top-2 right-2 text-2xl font-bold cursor-pointer"

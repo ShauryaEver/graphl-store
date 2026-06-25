@@ -21,7 +21,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Graphl",
+  title: "Graphl | Premium Fashion & Modern Style",
   description:
     "Graphl is a premium fashion destination offering modern, elegant, and trend-driven clothing designed for everyday luxury and timeless style.",
 };

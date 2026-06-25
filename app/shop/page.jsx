@@ -36,43 +36,60 @@ const Page = () => {
   }, []);
 
   return (
-    <section className="w-full min-h-screen">
-      <div className="mx-4 sm:mx-8 lg:mx-12 xl:mx-16 my-16 sm:my-20">
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold my-4">
-          Filter categories
-        </h2>
+    <section className="w-full min-h-screen bg-white">
+      <div className="max-w-7xl mx-auto px-6 py-20">
 
-        <div className="flex flex-wrap gap-3 my-6">
+        {/* Heading */}
+        <h1 className="text-5xl md:text-6xl font-bold text-center tracking-tight">
+          SHOP
+        </h1>
+
+        <p className="text-center text-gray-500 mt-4 mb-12">
+          Premium Essentials by Graphl
+        </p>
+
+        {/* Categories */}
+        <div className="flex flex-wrap justify-center gap-4 mb-16">
           {CATEGORIES.map((category) => (
             <button
               key={category.value}
               onClick={() => filterCategory(category.value)}
-              className="rounded-2xl bg-slate-300 px-4 py-2 text-sm sm:text-base
-                         hover:bg-slate-400 transition-colors"
+              className="
+                px-6
+                py-3
+                rounded-full
+                border
+                border-black
+                bg-white
+                text-black
+                font-medium
+                hover:bg-black
+                hover:text-white
+                transition-all
+                duration-300
+              "
             >
               {category.label}
             </button>
           ))}
         </div>
 
+        {/* Loader */}
         {loading && (
           <div className="fixed inset-0 flex items-center justify-center bg-white z-50">
             <div className="h-10 w-10 rounded-full border-4 border-gray-300 border-t-black animate-spin"></div>
           </div>
         )}
 
+        {/* Products Grid */}
         <div
           className="
-  grid
-  grid-cols-1
-  sm:grid-cols-2
-  md:grid-cols-3
-  xl:grid-cols-4
-  gap-x-6
-  gap-y-10
-  my-10
-  justify-items-center
-"
+            grid
+            grid-cols-1
+            md:grid-cols-2
+            lg:grid-cols-3
+            gap-12
+          "
         >
           {products.map((product) => (
             <ProductCard
