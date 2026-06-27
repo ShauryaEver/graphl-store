@@ -35,7 +35,7 @@ export function CartProvider({ children }) {
             {
               id: product.id,
               title: product.title,
-              image: product.image || product.thumbnail,
+              image: product.images[0],
               price: product.price,
               size: selectedSize,
               color: selectedColor,
