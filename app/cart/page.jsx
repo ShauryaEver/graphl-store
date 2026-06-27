@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useCart } from "./cartContext";
-import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 export default function CartPage() {
   const {
@@ -11,17 +11,17 @@ export default function CartPage() {
     increaseQuantity,
     decreaseQuantity,
     removeItem,
-    clearCart,
   } = useCart();
+
+  const router = useRouter();
 
   const subtotal = cartItems.reduce(
     (total, item) => total + item.price * item.quantity,
-    0,
+    0
   );
 
   const handleCheckout = () => {
-    toast.success("🎉 Order placed successfully!");
-    clearCart();
+    router.push("/checkout");
   };
 
   if (cartItems.length === 0) {
@@ -29,6 +29,7 @@ export default function CartPage() {
       <section className="min-h-screen bg-gray-100 flex items-center justify-center px-6">
         <div className="bg-white p-12 rounded-3xl shadow-lg text-center max-w-md w-full">
           <h2 className="text-2xl font-bold mb-2">Your cart is empty</h2>
+
           <p className="text-gray-600 mb-6">
             Looks like you haven’t added anything yet.
           </p>
@@ -51,69 +52,108 @@ export default function CartPage() {
       </h1>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10">
+
+        {/* Cart Items */}
         <div className="lg:col-span-2 space-y-6">
+
           {cartItems.map((item) => (
+
             <div
               key={`${item.id}-${item.size}-${item.color}`}
               className="flex flex-col sm:flex-row gap-4 sm:gap-6 bg-white p-4 sm:p-5 rounded-2xl shadow-lg"
             >
+
               <div className="relative w-full sm:w-28 h-40 sm:h-32 shrink-0">
+
                 <Image
                   src={item.image || "/placeholder.jpg"}
                   alt={item.title}
                   fill
                   className="object-cover rounded-xl"
                 />
+
               </div>
 
               <div className="flex-1 space-y-2">
+
                 <h3 className="text-base sm:text-lg font-semibold">
                   {item.title}
                 </h3>
 
-                <p className="text-sm text-gray-500">Size: {item.size}</p>
+                <p className="text-sm text-gray-500">
+                  Size: {item.size}
+                </p>
 
-                <p className="font-bold">₹{Math.floor(item.price)}</p>
+                <p className="font-bold">
+                  ₹{Math.floor(item.price)}
+                </p>
 
                 <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 mt-3">
+
                   <div className="flex items-center border rounded-lg overflow-hidden w-fit">
+
                     <button
                       onClick={() =>
-  decreaseQuantity(item.id, item.size, item.color)
-}
+                        decreaseQuantity(
+                          item.id,
+                          item.size,
+                          item.color
+                        )
+                      }
                       className="px-4 py-2 hover:bg-gray-100"
                     >
                       −
                     </button>
 
-                    <span className="px-4">{item.quantity}</span>
+                    <span className="px-4">
+                      {item.quantity}
+                    </span>
 
                     <button
                       onClick={() =>
-  increaseQuantity(item.id, item.size, item.color)
-}
+                        increaseQuantity(
+                          item.id,
+                          item.size,
+                          item.color
+                        )
+                      }
                       className="px-4 py-2 hover:bg-gray-100"
                     >
                       +
                     </button>
+
                   </div>
 
                   <button
                     onClick={() =>
-  removeItem(item.id, item.size, item.color)
-}
+                      removeItem(
+                        item.id,
+                        item.size,
+                        item.color
+                      )
+                    }
                     className="text-sm font-semibold text-red-500 hover:underline w-fit"
                   >
                     Remove
                   </button>
+
                 </div>
+
               </div>
+
             </div>
+
           ))}
+
         </div>
 
+        {/* Order Summary */}
+
         <div className="bg-white p-5 sm:p-6 rounded-2xl shadow-sm h-fit">
-          <h2 className="text-xl sm:text-2xl font-bold mb-6">Order Summary</h2>
+
+          <h2 className="text-xl sm:text-2xl font-bold mb-6">
+            Order Summary
+          </h2>
 
           <div className="flex justify-between mb-3">
             <span>Subtotal</span>
@@ -136,8 +176,11 @@ export default function CartPage() {
           >
             Proceed to Checkout
           </button>
+
         </div>
+
       </div>
+
     </section>
   );
 }

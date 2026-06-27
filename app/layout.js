@@ -7,6 +7,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Providers from "./providers";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { WishlistProvider } from "@/components/ui/WishlistProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -42,21 +43,27 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Providers>
-          <CartProvider>
-            <Navbar />
+  <CartProvider>
 
-            {children}
+    <WishlistProvider>
 
-            <ToastContainer
-              position="top-center"
-              autoClose={1000}
-              hideProgressBar
-              newestOnTop
-              closeOnClick
-              pauseOnHover
-            />
-          </CartProvider>
-        </Providers>
+      <Navbar />
+
+      {children}
+
+      <ToastContainer
+        position="top-center"
+        autoClose={1000}
+        hideProgressBar
+        newestOnTop
+        closeOnClick
+        pauseOnHover
+      />
+
+    </WishlistProvider>
+
+  </CartProvider>
+</Providers>
 
         <Footer />
         <SpeedInsights />
