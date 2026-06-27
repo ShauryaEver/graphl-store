@@ -41,65 +41,30 @@ const FeaturedCollection = [
   },
 ];
 
-const TrendingProducts = [
+const GraphlCategories = [
   {
     id: 1,
-    title: "Men's Street Shirt",
-    image: "/mens-trending.jpg",
-    price: "1299",
-    rating: "4.5",
-    sizes: ["S", "M", "L", "XL"],
-    disc: "Relaxed fit streetwear shirt with premium cotton fabric.",
+    title: "Hoodies",
+    image: "/products/hoodies/hoodie1.jpg",
+    href: "/category/hoodies",
   },
   {
     id: 2,
-    title: "Women's Summer Dress",
-    image: "/womens-trending.webp",
-    price: "2199",
-    rating: "4.6",
-    sizes: ["S", "M", "L", "XL"],
-
-    disc: "Lightweight floral dress perfect for summer outings.",
+    title: "Oversized T-Shirts",
+    image: "/products/tshirts/tshirt1.jpg",
+    href: "/category/tshirts",
   },
   {
     id: 3,
-    title: "Luxury Watch",
-    image: "/watch-trending.jpg",
-    price: "4999",
-    rating: "4.8",
-    sizes: ["S", "M", "L", "XL"],
-
-    disc: "Elegant luxury watch with stainless steel strap.",
+    title: "Premium Shirts",
+    image: "/products/tshirts/tshirt2.jpg",
+    href: "/category/shirts",
   },
   {
     id: 4,
-    title: "Premium Streetwear",
-    image: "/D1.jpg",
-    price: "1599",
-    rating: "4.5",
-    sizes: ["S", "M", "L", "XL"],
-
-    disc: "Modern streetwear hoodie with soft fleece interior for comfort.",
-  },
-  {
-    id: 5,
-    title: "Men's Oversized T-shirt",
-    image: "/tshirt-trending.jpg",
-    price: "2499",
-    rating: "4.7",
-    sizes: ["S", "M", "L", "XL"],
-
-    disc: "Trendy oversized t-shirt with soft fleece interior.",
-  },
-  {
-    id: 6,
-    title: "Women's Casual Sneakers",
-    image: "/sneakers-trending.jpg",
-    price: "3199",
-    rating: "4.6",
-    sizes: ["S", "M", "L", "XL"],
-
-    disc: "Comfortable everyday sneakers with breathable design.",
+    title: "Accessories",
+    image: "/products/tshirts/tshirt3.jpg",
+    href: "/category/accessories",
   },
 ];
 
@@ -457,21 +422,33 @@ hero-content
           className="mt-10 flex flex-nowrap gap-6 sm:gap-8 lg:gap-10 
                overflow-x-scroll no-scrollbar"
         >
-          {TrendingProducts.map((product) => (
+          {GraphlCategories.map((category) => (
             <div
-              key={product.id}
+              key={category.id}
               className="min-w-[260px] sm:min-w-[280px] lg:min-w-[300px] 
                    py-5 transition-transform duration-300 hover:scale-105"
             >
-              <ProductCard product={product} onClick={setSelectedProduct} />
+              <Link href={category.href}>
+                <div className="group cursor-pointer">
+                  <div className="relative w-full h-[420px] overflow-hidden rounded-3xl">
+                    <Image
+                      src={category.image}
+                      alt={category.title}
+                      fill
+                      className="object-cover transition duration-500 group-hover:scale-105"
+                    />
+                  </div>
+
+                  <h3 className="mt-4 text-2xl font-semibold">
+                    {category.title}
+                  </h3>
+                </div>
+              </Link>
             </div>
           ))}
         </div>
 
-        <PreviewCard
-          product={selectedProduct}
-          onClose={() => setSelectedProduct(null)}
-        />
+        
       </section>
 
       <section className="min-h-screen py-20 font-['Source Sans 3']">

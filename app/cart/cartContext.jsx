@@ -7,12 +7,27 @@ const cartContext = createContext(null);
 export function CartProvider({ children }) {
   const [cartItems, setCartItems] = useState([]);
 
-  const addToCart = (product, selectedSize) => {
+  const addToCart = (
+    product,
+    selectedSize,
+    selectedColor,
+    quantity = 1
+  ) => {
     setCartItems((prev) =>
-      prev.some((item) => item.id === product.id && item.size === selectedSize)
+      prev.some(
+        (item) =>
+          item.id === product.id &&
+          item.size === selectedSize &&
+          item.color === selectedColor
+      )
         ? prev.map((item) =>
-            item.id === product.id && item.size === selectedSize
-              ? { ...item, quantity: item.quantity + 1 }
+            item.id === product.id &&
+            item.size === selectedSize &&
+            item.color === selectedColor
+              ? {
+                  ...item,
+                  quantity: item.quantity + quantity,
+                }
               : item
           )
         : [
@@ -23,40 +38,60 @@ export function CartProvider({ children }) {
               image: product.image || product.thumbnail,
               price: product.price,
               size: selectedSize,
-              quantity: 1,
+              color: selectedColor,
+              quantity,
             },
           ]
     );
-     toast.success(
-    `${product.title} (Size ${selectedSize}) added to cart`
+
+    toast.success(
+      `${product.title} (${selectedColor}, Size ${selectedSize}) added to cart`
+    );
+  };
+
+  const increaseQuantity = (id, size, color) => {
+  setCartItems((prev) =>
+    prev.map((item) =>
+      item.id === id &&
+      item.size === size &&
+      item.color === color
+        ? {
+            ...item,
+            quantity: item.quantity + 1,
+          }
+        : item
+    )
   );
-  };
+};
 
-  const increaseQuantity = (id, size) => {
-    setCartItems((prev) =>
-      prev.map((item) =>
-        item.id === id && item.size === size
-          ? { ...item, quantity: item.quantity + 1 }
-          : item
-      )
-    );
-  };
+  const decreaseQuantity = (id, size, color) => {
+  setCartItems((prev) =>
+    prev.map((item) =>
+      item.id === id &&
+      item.size === size &&
+      item.color === color &&
+      item.quantity > 1
+        ? {
+            ...item,
+            quantity: item.quantity - 1,
+          }
+        : item
+    )
+  );
+};
 
-  const decreaseQuantity = (id, size) => {
-    setCartItems((prev) =>
-      prev.map((item) =>
-        item.id === id && item.size === size && item.quantity > 1
-          ? { ...item, quantity: item.quantity - 1 }
-          : item
-      )
-    );
-  };
-
-  const removeItem = (id, size) => {
-    setCartItems((prev) =>
-      prev.filter((item) => !(item.id === id && item.size === size))
-    );
-  };
+  const removeItem = (id, size, color) => {
+  setCartItems((prev) =>
+    prev.filter(
+      (item) =>
+        !(
+          item.id === id &&
+          item.size === size &&
+          item.color === color
+        )
+    )
+  );
+};
 
   const clearCart = () => {
   setCartItems([]);

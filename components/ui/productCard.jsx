@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 function ProductCard({ product, onClick }) {
   const image =
@@ -18,13 +19,10 @@ function ProductCard({ product, onClick }) {
     : "999";
 
   return (
-    <div
-      onClick={() => onClick(product)}
-      className="
-        group
-        cursor-pointer
-      "
-    >
+    <Link
+  href={`/product/${product.id}`}
+  className="group cursor-pointer block"
+>
       <div
         className="
           overflow-hidden
@@ -72,7 +70,7 @@ function ProductCard({ product, onClick }) {
           ₹{price}
         </p>
       </div>
-    </div>
+    </Link>
   );
 }
 

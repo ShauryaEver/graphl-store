@@ -54,7 +54,7 @@ export default function CartPage() {
         <div className="lg:col-span-2 space-y-6">
           {cartItems.map((item) => (
             <div
-              key={`${item.id}-${item.size}`}
+              key={`${item.id}-${item.size}-${item.color}`}
               className="flex flex-col sm:flex-row gap-4 sm:gap-6 bg-white p-4 sm:p-5 rounded-2xl shadow-lg"
             >
               <div className="relative w-full sm:w-28 h-40 sm:h-32 shrink-0">
@@ -78,7 +78,9 @@ export default function CartPage() {
                 <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 mt-3">
                   <div className="flex items-center border rounded-lg overflow-hidden w-fit">
                     <button
-                      onClick={() => decreaseQuantity(item.id, item.size)}
+                      onClick={() =>
+  decreaseQuantity(item.id, item.size, item.color)
+}
                       className="px-4 py-2 hover:bg-gray-100"
                     >
                       −
@@ -87,7 +89,9 @@ export default function CartPage() {
                     <span className="px-4">{item.quantity}</span>
 
                     <button
-                      onClick={() => increaseQuantity(item.id, item.size)}
+                      onClick={() =>
+  increaseQuantity(item.id, item.size, item.color)
+}
                       className="px-4 py-2 hover:bg-gray-100"
                     >
                       +
@@ -95,7 +99,9 @@ export default function CartPage() {
                   </div>
 
                   <button
-                    onClick={() => removeItem(item.id, item.size)}
+                    onClick={() =>
+  removeItem(item.id, item.size, item.color)
+}
                     className="text-sm font-semibold text-red-500 hover:underline w-fit"
                   >
                     Remove
