@@ -37,5 +37,10 @@ export default async function CollectionPage({ params }) {
     image: "",
   };
 
-  return <CategoryClient products={products} currentCategory={currentCategory} />;
+  return (
+    <CategoryClient
+      products={products}
+      currentCategory={currentCategory}
+    />
+  );
 }

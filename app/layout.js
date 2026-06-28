@@ -1,13 +1,16 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from "./layout-components/Navbar";
-import Footer from "./layout-components/Footer";
+
 import { CartProvider } from "./cart/cartContext";
+import { WishlistProvider } from "@/components/ui/WishlistProvider";
+
+import Providers from "./providers";
+import LayoutWrapper from "./layout-components/LayoutWrapper";
+
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Providers from "./providers";
+
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { WishlistProvider } from "@/components/ui/WishlistProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -43,29 +46,26 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Providers>
-  <CartProvider>
+          <CartProvider>
+            <WishlistProvider>
 
-    <WishlistProvider>
+              <LayoutWrapper>
+                {children}
+              </LayoutWrapper>
 
-      <Navbar />
+              <ToastContainer
+                position="top-center"
+                autoClose={1000}
+                hideProgressBar
+                newestOnTop
+                closeOnClick
+                pauseOnHover
+              />
 
-      {children}
+            </WishlistProvider>
+          </CartProvider>
+        </Providers>
 
-      <ToastContainer
-        position="top-center"
-        autoClose={1000}
-        hideProgressBar
-        newestOnTop
-        closeOnClick
-        pauseOnHover
-      />
-
-    </WishlistProvider>
-
-  </CartProvider>
-</Providers>
-
-        <Footer />
         <SpeedInsights />
       </body>
     </html>

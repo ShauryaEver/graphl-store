@@ -16,55 +16,59 @@ const LayoutTextFlip = dynamic(
 
 const FeaturedCollection = [
   {
-    title: "Casual Wears",
-    img: "/casual-wear2-img.jpg",
+    title: "Premium Hoodies",
+    img: "/products/hoodies/hoodie1.jpg",
     desc: "Everyday comfort with effortless street style",
     items: "24 items",
+    href: "/collection/hoodies",  // ← /collection
   },
   {
-    title: "Premium Watches",
-    img: "/watch-img.jpg",
-    desc: "Precision-crafted timepieces for timeless elegance",
+    title: "Oversized Tshirts",
+    img: "/products/tshirts/tshirt1.jpg",
+    desc: "Precision-crafted fits for the modern streetwear look",
     items: "18 items",
+    href: "/collection/tshirts",  // ← /collection
   },
   {
-    title: "Men's Collection",
-    img: "/mens-collection-img.jpg",
+    title: "Streetwear",
+    img: "/products/tshirts/tshirt2.jpg",
     desc: "Refined styles built for confidence and power",
     items: "32 items",
+    href: "/collection/streetwear",  // ← /collection
   },
   {
-    title: "Women's Collection",
-    img: "/womens-collection-img.jpg",
-    desc: "Graceful silhouettes with a contemporary edge",
+    title: "Graphl #SPL Edition",
+    img: "/products/tshirts/tshirt3.jpg",
+    desc: "Exclusive drops. Limited runs. Only for the bold.",
     items: "29 items",
+    href: "/collection/spl-edition",  // ← /collection
   },
 ];
 
 const GraphlCategories = [
   {
     id: 1,
-    title: "Hoodies",
+    title: "Heavy Fits",        // ← change here
     image: "/products/hoodies/hoodie1.jpg",
-    href: "/category/hoodies",
+    href: "/trending/hoodies",
   },
   {
     id: 2,
-    title: "Oversized T-Shirts",
+    title: "Bold Prints",  // ← change here
     image: "/products/tshirts/tshirt1.jpg",
-    href: "/category/tshirts",
+    href: "/trending/tshirts",
   },
   {
     id: 3,
-    title: "Premium Shirts",
+    title: "Street Code",     // ← change here
     image: "/products/tshirts/tshirt2.jpg",
-    href: "/category/shirts",
+    href: "/trending/streetwear",
   },
   {
     id: 4,
-    title: "Accessories",
+    title: "Limited Series",    // ← change here
     image: "/products/tshirts/tshirt3.jpg",
-    href: "/category/accessories",
+    href: "/trending/spl-edition",
   },
 ];
 
@@ -377,31 +381,31 @@ hero-content
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 my-12">
           {FeaturedCollection.map((item) => (
-            <div
-              key={item.title}
-              className="group relative overflow-hidden flex flex-col justify-end 
-                   px-4 py-4 w-full h-[280px] sm:h-[320px] lg:h-[360px] 
-                   rounded-3xl text-white"
-            >
-             <div className="absolute inset-0 overflow-hidden rounded-3xl">
-  <Image
-    src={item.img}
-    alt={item.title}
-    fill
-    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-    className="object-cover transition-transform duration-500 group-hover:scale-110"
-  />
-</div>
+            <Link key={item.title} href={item.href}>
+              <div
+                className="group relative overflow-hidden flex flex-col justify-end 
+                     px-4 py-4 w-full h-[280px] sm:h-[320px] lg:h-[360px] 
+                     rounded-3xl text-white cursor-pointer"
+              >
+                <div className="absolute inset-0 overflow-hidden rounded-3xl">
+                  <Image
+                    src={item.img}
+                    alt={item.title}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                </div>
 
+                <div className="absolute inset-0 bg-black/30" />
 
-              <div className="absolute inset-0 bg-black/30" />
-
-              <div className="relative z-10">
-                <h3 className="text-xl sm:text-2xl font-bold">{item.title}</h3>
-                <p className="text-sm sm:text-base">{item.desc}</p>
-                <span className="text-gray-300 text-sm">{item.items}</span>
+                <div className="relative z-10">
+                  <h3 className="text-xl sm:text-2xl font-bold">{item.title}</h3>
+                  <p className="text-sm sm:text-base">{item.desc}</p>
+                  <span className="text-gray-300 text-sm">{item.items}</span>
+                </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </section>
