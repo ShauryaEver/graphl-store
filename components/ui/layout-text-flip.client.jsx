@@ -6,11 +6,16 @@ import { motion, AnimatePresence } from "motion/react";
 export default function LayoutTextFlip({
   text = "",
   words = [
-  "VISION",
-  "AMBITION",
-  "DISCIPLINE",
-  "IDENTITY",
-  "LEGACY"
+  "CULTURE",
+  "REBELLION",
+  "AUTHORITY",
+  "OBSESSION",
+  "MYTHOLOGY",
+  "DOMINANCE",
+  "FREQUENCY",
+  "UPRISING",
+  "SUPREMACY",
+  "ETERNITY",
 ],
   duration = 2000,
 }) {
