@@ -90,10 +90,10 @@ const ReviewData = [
       "Product looks exactly like the images. Delivery was fast and packaging was neat.",
   },
   {
-    profilePic: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
-    name: "Rohit Sharma",
+    profilePic: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1",
+    name: "Riya Gurnani",
     occupation: "Frequent Shopper",
-    rating: 3.8,
+    rating: 5.0,
     comment: "Overall good, but the size runs slightly small. Go one size up.",
   },
   {
@@ -227,148 +227,63 @@ export default function Home() {
 
   <div className="absolute inset-0 -z-10 bg-black/45" />
 
- <div
-  className="
-flex
-flex-col
-justify-center
-items-start
-h-full
-max-w-3xl
-ml-8
-lg:ml-24
-px-6
-gap-4
-text-white
-hero-content
--translate-y-4
-"
->
-    <p
-  className="
-    inline-flex
-    mt-8
-    items-center
-    rounded-full
-    border
-    border-white/20
-    bg-white/10
-    backdrop-blur-xl
-    px-5
-    py-2
-    text-xs
-    uppercase
-    tracking-[0.3em]
-    text-white/90
-    transition-all
-    duration-300
-  "
->
-  EST. 2026 • PREMIUM STREETWEAR
-</p>
+ <div className="flex flex-col justify-center items-start h-full max-w-2xl ml-8 lg:ml-24 px-6 gap-5 text-white -translate-y-4">
 
-    <h1 className="leading-[0.9]">
+  {/* Badge */}
+  <p className="inline-flex items-center rounded-full border border-white/20 bg-white/10 backdrop-blur-xl px-5 py-2 text-xs uppercase tracking-[0.3em] text-white/90">
+    EST. 2026 • PREMIUM STREETWEAR
+  </p>
 
-  <span className="block text-5xl md:text-7xl font-black tracking-tight">
-    GRAPHL®
-  </span>
-
-  <span className="block mt-4 text-3xl md:text-6xl font-light uppercase tracking-[0.2em]">
-    BUILT FOR
-  </span>
-
-  <span className="block text-3xl md:text-6xl font-light uppercase tracking-[0.2em]">
-    THE BOLD
-  </span>
-
-      <span className="font-bold text-2xl sm:text-4xl lg:text-7xl">
-        GRAPHL
-      </span>
-
+  {/* Heading */}
+  <h1 className="leading-[0.95] flex flex-col gap-2">
+    <span className="block text-5xl md:text-7xl font-black tracking-tight">
+      GRAPHL®
+    </span>
+    <span className="block text-3xl md:text-5xl font-light uppercase tracking-[0.15em] text-white/80">
+      BUILT FOR THE BOLD
+    </span>
+    <span className="block text-3xl md:text-5xl font-light uppercase tracking-[0.15em] text-white/80 overflow-hidden">
       <LayoutTextFlip />
-    </h1>
+    </span>
+  </h1>
 
-    <p className="max-w-xl ">
-      Designed for creators.
-      Built for everyday wear.
-    </p>
+  {/* Subtext */}
+  <p className="text-white/60 text-sm tracking-widest uppercase">
+    Designed for creators. Built for everyday wear.
+  </p>
 
-    <Link href="/shop">
-      <button
-        className="
-          group
-          relative
-          rounded-full
-          bg-white
-          text-black
-          px-8
-          py-4
-          font-semibold
-          transition-all
-          duration-500
-          hover:bg-black
-          hover:text-white
-          hover:border
-          hover:border-white
-        "
-      >
+  {/* Button */}
+  <Link href="/shop">
+    <button className="group relative overflow-hidden flex items-center gap-4 px-8 py-4 rounded-full border border-white/30 bg-white/10 backdrop-blur-md text-white font-light tracking-[0.2em] uppercase text-sm transition-all duration-500 hover:bg-white hover:text-black hover:border-white hover:tracking-[0.3em]">
+      <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:translate-x-full transition-transform duration-700 ease-in-out" />
+      <span className="relative z-10">Explore The Lookbook</span>
+      <span className="relative z-10 flex items-center justify-center w-8 h-8 rounded-full border border-white/40 group-hover:border-black/40 transition-all duration-300">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} width={14} height={14} className="transition-transform duration-300 group-hover:translate-x-0.5">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12L13.5 19.5M21 12H3" />
+        </svg>
+      </span>
+    </button>
+  </Link>
 
+  {/* Trust badges */}
+  <div className="flex flex-wrap gap-6 text-xs text-white/40 tracking-widest uppercase">
+    <span>✓ Premium Cotton</span>
+    <span>✓ Free Shipping</span>
+    <span>✓ Easy Returns</span>
+  </div>
 
-        <div className="flex flex-wrap gap-6 mt-6 text-sm text-white/70">
-
-  <span>✓ Premium Cotton</span>
-
-  <span>✓ Free Shipping</span>
-
-  <span>✓ Easy Returns</span>
+  {/* Scroll indicator */}
+  <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 text-white hidden sm:block">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} width={26} height={26} className="animate-bounce">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v14m0 0l-5-5m5 5l5-5" />
+    </svg>
+  </div>
 
 </div>
-        <span className="relative z-10 flex items-center gap-3">
-          SHOP COLLECTION →
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth={1.5}
-            width={20}
-            height={20}
-            className="transition-transform group-hover:translate-x-1.5 duration-300"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M13.5 4.5L21 12L13.5 19.5M21 12H3"
-            />
-          </svg>
-        </span>
-        <span className="absolute inset-0 bg-white/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-      </button>
-    </Link>
-
-    <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 text-white hidden sm:block">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth={1.5}
-        width={26}
-        height={26}
-        className="animate-bounce"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M12 3v14m0 0l-5-5m5 5l5-5"
-        />
-      </svg>
-    </div>
-  </div>
 </section>
 
 
-      <section className="min-h-screen bg-white px-6 sm:px-10 lg:px-20 py-16">
+      <section className="min-h-screen px-6 sm:px-10 lg:px-20 py-16">
         <div className="flex flex-col items-center text-center">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold">
             Featured Collections
@@ -455,25 +370,52 @@ hero-content
         
       </section>
 
-      <section className="min-h-screen py-20 font-['Source Sans 3']">
-        <div className="flex flex-col justify-center items-center text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold">
-            What Our Customers Say
-          </h2>
-          <p className="my-3 text-base sm:text-lg text-gray-700 max-w-2xl">
-            Join the Graphl community and wear designs built for creators, dreamers, and builders.
-          </p>
-        </div>
+     <section className="py-24 px-6 sm:px-10 lg:px-20">
+  <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
 
-        <div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 
-                  gap-8 px-6 sm:px-10 lg:px-20"
-        >
-          {ReviewData.map((review, i) => (
-            <ReviewsCard key={i} {...review} />
+    {/* Left */}
+    <div className="flex flex-col gap-6">
+      <h2 className="text-4xl sm:text-5xl font-black leading-tight text-black">
+        What Our Customers Say About Graphl
+      </h2>
+      <p className="text-gray-500 text-lg max-w-md">
+        Real people. Real fits. Join the Graphl community built for creators, dreamers, and the bold.
+      </p>
+      <div className="flex items-center gap-3 mt-2">
+        <div className="flex -space-x-3">
+          {ReviewData.slice(0, 3).map((r, i) => (
+            <img
+              key={i}
+              src={r.profilePic}
+              alt={r.name}
+              className="w-10 h-10 rounded-full border-2 border-white object-cover"
+            />
           ))}
         </div>
-      </section>
+        <p className="text-sm text-gray-500">
+          <span className="font-bold text-black">2,000+</span> happy customers
+        </p>
+      </div>
+      <div className="flex items-center gap-2">
+        <span className="text-yellow-400 text-xl">★★★★★</span>
+        <span className="text-sm font-semibold text-black">4.8</span>
+        <span className="text-sm text-gray-400">average rating</span>
+      </div>
+      <button className="mt-2 w-fit px-8 py-3 rounded-full bg-[#4a8c6a] text-white text-sm font-medium hover:bg-[#3d7559] transition">
+        View More
+      </button>
+    </div>
+
+    {/* Right — 3 reviews only */}
+    <div className="flex flex-col gap-4">
+      {ReviewData.slice(0, 3).map((review, i) => (
+        <ReviewsCard key={i} {...review} index={i} />
+      ))}
+    </div>
+
+  </div>
+</section>
     </>
   );
 }
+
