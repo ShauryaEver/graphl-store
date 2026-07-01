@@ -2,6 +2,7 @@ import graphlProducts from "@/lib/graphlProducts";
 import ProductInfo from "@/components/ui/ProductInfo";
 import ProductGallery from "@/components/ui/ProductGallery";
 import ProductTabs from "@/components/ui/ProductTabs";
+import RelatedProducts from "@/components/ui/RelatedProducts";
 
 export default async function ProductPage({ params }) {
 
@@ -41,6 +42,10 @@ export default async function ProductPage({ params }) {
           <ProductInfo product={product} />
         </div>
         <ProductTabs product={product} />
+        <RelatedProducts
+          currentProductId={product.id}
+          currentCategory={product.category}
+        />
       </div>
     </main>
   );
